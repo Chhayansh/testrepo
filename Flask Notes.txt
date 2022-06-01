@@ -1,0 +1,22 @@
+1. First of all create a virtual environment by command: virtualenv venv
+2. Now open a vscode create a file .flaskenv and write the following things in it: FLASK_ENV=development \n FLASK_APP=main.py
+3. Now also create config.py file in which we import os and create a class Config(object) and create a secret key as
+   SECRET_KEY = os.environ.get('SECRET_KEY') or "secret_string"
+4. Now create a main file and run the commands.
+5. To run the main.py:
+	a. First activate the virtual environment by command: venv\Scripts\activate
+	b. Now install the flask module by command: pip install flask (For the first time)
+	c. Now install python-dotenv with the help of the following command: pip install python-dotenv.(For the first time)
+	d. Now run the command: flask run (To run the main file)
+6. To create a database first of all install Mongodb from www.mongodb.com and also install mongodb database tools for windows. And also set this in environment    variable.
+7. Now in virtualenvironment install mongoengine with command: pip install flask-mongoengine.
+8. Now in config.py file setup database as  MONGODB_SETTINGS = { 'db' : 'UTA_Enrollment'}
+	a. Now in init.py file first import flask_mongoengine and then type: 		           
+	        app.config.from_object(Config)
+		db = MongoEngine()
+		db.init_app(app) 
+	   To initialize the database from the python file.
+	b. Also create a class and give it a variable db.document and in this class declare the variables.
+	c. Now create a function and in that function call that class as var = classname.objects.all() and return this in template.
+9. Now to get data(json file) in mongodb: open cmd and type command:- mongoimport --jsonArray --db UTA_Enrollment --collection collection_name --file file(.json file) location.
+10.    
